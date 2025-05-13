@@ -354,7 +354,7 @@ const ChatInfo = ({ closeVar, image }) => {
                         } dark:bg-gray-800 p-2 bg-gray-300 hover:bg-purple-500 rounded-lg cursor-pointer ${fontSize}`}
                         onClick={() => setIsAddingVisible(!isAddingVisible)}
                       >
-                        Adding
+                        Add More Members
                       </span>
                       {isAddingVisible && (
                         <div className="flex max-w-full flex-col gap-2 items-center mt-4">

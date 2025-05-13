@@ -55,7 +55,7 @@ export const SignUp = async ( name, email, password, about, pic) => {
     });
 
     if (!savedUserData.ok) {
-      return savedUserData.json(); /// KEEP DOING THE EMAIL VERIFICATIONS
+      return savedUserData.json(); 
     }
 
     const result = await savedUserData.json();

@@ -25,7 +25,7 @@ const NotificationCard = ({
         <img
           src={image}
           alt={`${chatName[0]}`}
-          className="min-w-10 min-h-10 rounded-full"
+          className="w-10 max-h-10 rounded-full"
         />
       </div>
       <div>
