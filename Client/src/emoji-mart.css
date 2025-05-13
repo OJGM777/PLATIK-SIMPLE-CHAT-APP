@@ -1,0 +1,16 @@
+
+.emoji-mart {
+    background-color: #854949 !important;
+  }
+
+  
+/* Cambiar el color del texto de la búsqueda */
+.emoji-mart-search input {
+    background-color: #333 !important;
+    color: white !important;
+  }
+  
+  /* Cambiar la barra de categorías */
+  .emoji-mart-category-bar {
+    background-color: #444 !important;
+  }
