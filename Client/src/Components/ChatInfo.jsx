@@ -1,15 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteAllMessagesFromChat,
-  deleteEntireChat,
-  getUserChats,
-  updateChatInfo,
-} from "../API/chatCalls.js";
 import LoadScreen from "./LoadScreen.jsx";
 import AddUser from "../Widgets/AddUser.jsx";
 import OriginalSizePicture from "../Widgets/OriginalSizePicture.jsx";
-import { setToUpdater } from "../store/chatSlice.js";
 import ConfirmationModal from "../Widgets/ConfirmationModal.jsx";
 import { socket } from "../API/SOCKET_IO.js";
 import {
@@ -20,6 +13,8 @@ import {
 } from "../handlers/chatHandlers.js";
 import MemberComponent from "./MemberComponent.jsx";
 import { verifySize } from "../utilities/verifyImageSize.js";
+import { handleDeleteEntireChat, handleEmptyMessagesFromChat, handleUpdate } from "../handlers/chatInfoHandlers.js";
+
 
 const ChatInfo = ({ closeVar, image }) => {
   const fileInputRef = useRef(null);
@@ -28,7 +23,6 @@ const ChatInfo = ({ closeVar, image }) => {
   const token = useSelector((state) => state.tokenInfo);
   const mutedChats = useSelector((state) => state.mutedChats);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.userInfo);
   const [activeTab, setActiveTab] = useState("tab1");
   const [openProfileId, setOpenProfileId] = useState(null);
   const [toWait, setToWait] = useState(false);
@@ -75,82 +69,8 @@ const ChatInfo = ({ closeVar, image }) => {
     }
   };
 
-  const handleUpdate = async () => {
-    setToWait(true);
-    try {
-      await updateChatInfo(
-        activeChat.data.id,
-        chatName,
-        description,
-        newProfilePicture ? newProfilePicture : profilePicture,
-        token,
-        dispatch,
-        activeChat.data.ChatImage
-      );
-      await getUserChats(user.id, dispatch, token);
-    } catch (error) {
-      console.error("Error updating chat info:", error);
-    } finally {
-      setToWait(false);
-      setToUpdate(false);
-      dispatch(setToUpdater());
-    }
-  };
-
-  // THIS SECTION HANDLES THE DELETE OPTIONS
-
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [typeOfConfirmation, setTypeOfConfirmation] = useState("");
-
-  const handleEmptyMessagesFromChat = async () => {
-    // PARAMS: SOCKET, CHATDID, USERID(ADMIN), TOKEN
-    try {
-      const result = await deleteAllMessagesFromChat(
-        activeChat.data.id,
-        userProfile.id,
-        token
-      );
-
-      if (result.deleted) {
-        socket.emit("all_messages_deleted", {
-          chatAdminId: activeChat.data.ChatAdmin,
-          roomId: activeChat.data.id,
-        });
-
-        return () => {
-          socket.off("all_messages_deleted");
-        };
-      }
-    } catch (error) {
-      console.error("Error FROM GROUP:", error);
-    }
-  };
-
-  const handleDeleteEntireChat = async () => {
-    // PARAMS: SOCKET, CHATDID, USERID(ADMIN), TOKEN
-    try {
-      const result = await deleteEntireChat(
-        activeChat.data.id,
-        userProfile.id,
-        token
-      );
-
-      if (result.deleted) {
-        socket.emit("entire_chat_deleted", {
-          chatAdminId: activeChat.data.ChatAdmin,
-          roomId: activeChat.data.id,
-        });
-
-        return () => {
-          socket.off("all_messages_deleted");
-        };
-      }
-    } catch (error) {
-      console.error("Error FROM GROUP:", error);
-    }
-  };
-
-  ////
 
   useEffect(() => {
     setProfilePicture(
@@ -210,7 +130,6 @@ const ChatInfo = ({ closeVar, image }) => {
             </ul>
           </div>
 
-          {/* Contenido principal */}
           <div className="flex-grow overflow-auto p-6">
             {activeTab === "tab1" && (
               <div>
@@ -301,7 +220,7 @@ const ChatInfo = ({ closeVar, image }) => {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
-                          handleUpdate();
+                          handleUpdate(setToWait, activeChat, chatName, description, newProfilePicture, profilePicture, token, dispatch, setToUpdate, userProfile);
                         }}
                         className="bg-purple-500 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded"
                       >
@@ -480,27 +399,27 @@ const ChatInfo = ({ closeVar, image }) => {
             onConfirm={() => {
               switch (typeOfConfirmation) {
                 case "DELETE_MESSAGES":
-                  handleEmptyMessagesFromChat();
+                  handleEmptyMessagesFromChat(socket, activeChat, userProfile, token);
                   setShowConfirmationModal(false);
                   break;
 
                 case "LEAVE_CHAT":
                   handleRemoveUsersFromGroup(
                     activeChat.data.id,
-                    user.id,
+                    userProfile.id,
                     token,
                     dispatch
                   );
                   break;
 
                 case "DELETE_CHAT":
-                  handleDeleteEntireChat();
+                  handleDeleteEntireChat(socket, userProfile, activeChat, token);
                   setShowConfirmationModal(false);
                   break;
 
                 default:
                   console.warn(
-                    "Tipo de confirmación no reconocido:",
+                    "UNKNOWN CONFIRMATION:",
                     typeOfConfirmation
                   );
               }
