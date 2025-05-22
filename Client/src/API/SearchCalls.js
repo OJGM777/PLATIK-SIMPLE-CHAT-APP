@@ -1,6 +1,3 @@
-
-
-
 export const searchUser = async (keyword, Token) => {
   try {
     const result = await fetch(

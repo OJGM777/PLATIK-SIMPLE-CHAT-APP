@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../API/usersCalls.js";
 import { formatDate } from "../utilities/formatDate.js";
@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import OriginalSizePicture from "../Widgets/OriginalSizePicture.jsx";
 
 const ProfileInfo = ({ closeVar, id }) => {
-  const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState(null);
   const Token = useSelector((state) => state.tokenInfo);
   const fontSize = useSelector((state) => state.fontSize);
@@ -29,7 +28,7 @@ const ProfileInfo = ({ closeVar, id }) => {
     };
 
     fetchUserData();
-  }, [id, Token]); //DEPENDENCIES
+  }, [id, Token]);
 
   if (isLoading) {
     return <UserInfoSkeletonLoader />;

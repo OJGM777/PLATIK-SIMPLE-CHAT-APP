@@ -1,7 +1,7 @@
-// THIS ENTIRE FILE IS USED TO STORAGE ALL THE CHAT WINDOW'S FUNCTIONS, THIS THAT INCLUDES FETCHING AND STATE MANAGEMENT
-// MESSAGES, CHAT ADMIN ACTIONS AND IN-REAL TIME ACTIONS WILL BE STORAGED HERE.
-//ALL SOCKET IO "ON" FUNCTIONS ARE ALOCATED IN THE CHAT WINDOW COMPONENT
-// SOME SOCKET IO "EMIT" FUNCTIONS ARE HERE TOO: SEND MESSAGE, DELETE MESSAGE, UPDATE ETC....
+// THIS ENTIRE FILE IS USED TO STORE ALL THE CHAT WINDOW'S FUNCTIONS. THIS INCLUDES FETCHING DATA AND STATE MANAGEMENT.
+// MESSAGES, CHAT ADMIN ACTIONS, AND REAL-TIME ACTIONS WILL BE STORED HERE.
+// ALL SOCKET.IO "ON" FUNCTIONS ARE LOCATED IN THE CHAT WINDOW COMPONENT.
+// SOME SOCKET.IO "EMIT" FUNCTIONS ARE HERE TOO: SEND MESSAGE, DELETE MESSAGE, UPDATE, ETC..
 
 
 
@@ -24,9 +24,8 @@ import {
   createAndSendMessage,
 } from "../API/messageCalls.js";
 import { handleUpdate } from "./messagehandlers.js";
-// import { sendNotificationsToBackend } from "../API/notificationsCalls.js";
 
-///ALMOST THE SAME THE "HANDLE KICKED USER" FUNCTION, BUT THIS ONE IS FOR THE ADMIN
+///ALMOST THE SAME AS THE "HANDLE KICKED USER" FUNCTION, BUT THIS ONE IS FOR THE ADMIN
 export const handleRemoveUsersFromGroup = async (
   chatid,
   userId,
@@ -97,7 +96,7 @@ export const handleKickedUser = (kickedUserId, user, navigate, dispatch) => {
   return dispatch(deleteKickedUserFromState({ kickedUserId: kickedUserId }));
 };
 
-//THIS FUNCTION HAS THE LOGIC TO CREATE A DUAL CHAT IF IT ALREADY EXISTS, THE FUNCTION WILL SEND THE ID TO USE NAVIGATE AND GET IN THE CHAT
+//THIS FUNCTION HAS THE LOGIC TO CREATE A DUAL CHAT, IF IT ALREADY EXISTS: THE FUNCTION WILL SEND THE ID TO USE NAVIGATE AND GET IN THE CHAT
 export const handleCreateDualChat = async (
   memberUser,
   user,
@@ -221,8 +220,6 @@ export const sendMessageInfo = async (
       senderProfilePicture: newMessage.senderPic,
     };
     socket.emit("new_message", messageData); // Emit the new message event
-    // await sendNotificationsToBackend(messageData, token);
-
     return () => {
       socket.off("new_message");
     };
@@ -231,7 +228,7 @@ export const sendMessageInfo = async (
   }
 };
 
-//// THIS SECTION HANDLES ALL THE FUNCTIONS AND LOGIC  RELATED TO SHOW USERS THAT ARE WRITING IN THE CHAT AND RECEIVING THEIR INFO
+//// THIS SECTION HANDLES ALL THE FUNCTIONS AND LOGIC  RELATED TO SHOW USERS THAT ARE WRITING IN THE CHAT
 
 export const handleTyping = (socket, user, activeChat) => {
   socket.emit("is_Typing", {
@@ -339,7 +336,6 @@ export const handleDeleteAllMessages = (dispatch) => {
 ///// IN CASE THAT SOMEONE IN THE CHAT UPDATES A MESSAGES, REDUX WILL PERFORM THIS REDUCER:
 
 export const handleUpdatedMessage = (updatedMessageData, dispatch) => {
-  // THIS ONE TO SEPARATE
   dispatch(
     updateMessageFromState({
       messageContent: updatedMessageData.newMessageContent,
@@ -349,7 +345,6 @@ export const handleUpdatedMessage = (updatedMessageData, dispatch) => {
 };
 
 export const handleDeleteMessage = (deletedMessageId, dispatch) => {
-  /// THIS ONE TO SEPARATE
   dispatch(deleteMessageFromState({ messageId: deletedMessageId }));
 };
 

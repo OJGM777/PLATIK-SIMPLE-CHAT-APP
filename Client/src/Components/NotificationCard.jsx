@@ -1,8 +1,6 @@
-import React from "react";
 import { setUnseenNotificationsToZero } from "../store/chatSlice";
 
 const NotificationCard = ({
-  NotificationId,
   chatId,
   chatName,
   description,

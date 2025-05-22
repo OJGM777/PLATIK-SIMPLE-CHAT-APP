@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ConfirmationModal = ({ isOpen, onClose, onConfirm, title = "Confirm", message = "Are you sure to do this action?" }) => {
   if (!isOpen) return null;
 

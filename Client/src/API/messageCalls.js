@@ -1,5 +1,3 @@
-import { setMessages } from "../store/chatSlice";
-
 export const createAndSendMessage = async (
   chatId,
   messageContent,
@@ -126,8 +124,8 @@ export const updateMessageById = async(messageId, contentToUpdate, token) => {
 export const getMessagesFromChat = async (chatId, dispatch, token, offset) => {
   try {
     const params = new URLSearchParams({
-      offset: offset, // Comienza desde el mensaje 0
-      limit: 50, // Número de mensajes a cargar
+      offset: offset, // STARTS AT 0
+      limit: 50, //LIMIT OF MESSAGES TO GET
     });
     const url = `http://localhost:3000/message/get/${chatId}?${params.toString()}`;
     const messagesData = await fetch(url, {

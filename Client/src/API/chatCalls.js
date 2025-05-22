@@ -1,5 +1,4 @@
 import { setActiveChat, setChats } from "../store/chatSlice.js";
-import { getUserNotifications } from "./notificationsCalls.js";
 
 export const getUserChats = async (id, dispatch, Token) => {
   try {
@@ -122,7 +121,7 @@ export const addUsersToGroup = async (chatId, usersId, Token) => {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${Token}`,
-        // "Content-Type": "application/json",
+
       },
       body: FRMData,
     });

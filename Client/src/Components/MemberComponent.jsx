@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { handleCreateDualChat, handleRemoveUsersFromGroup } from "../handlers/chatHandlers";
@@ -28,7 +27,7 @@ const MemberComponent = ({
       )}
       <li
         key={Id}
-        onClick={() => closeProfileVar(Id)} // Abre el perfil correspondiente
+        onClick={() => closeProfileVar(Id)} 
         className="flex cursor-pointer relative items-center gap-2 p-2 dark:bg-gray-800 bg-gray-300 rounded-md"
       >
         <img

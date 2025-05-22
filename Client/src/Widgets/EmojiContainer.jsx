@@ -23,13 +23,12 @@ const EmojiContainer = ({ setMessageContent }) => {
     }
   }, []);
 
-  // CREATE THE LOGIC TO TOGGLE THE EMOJI MENU
-  //CREATE LOGIC TO SEARCH EMOJI
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedQuery(query);
-    }, 100); // Espera 300ms antes de buscar
+    }, 100); 
 
     return () => clearTimeout(timer);
   }, [query]);

@@ -39,24 +39,3 @@ export const deleteNotificationsFromChat = async (userId, chatId, Token) => {
   }
 };
 
-// export const sendNotificationsToBackend = async (pendingMessage, Token) => {
-//   const FRMData = new FormData();
-//   FRMData.append("chatId", pendingMessage.chatId);
-//   FRMData.append("message", pendingMessage.chatDescription);
-//   FRMData.append("chatImage", pendingMessage.chatImage);
-//   FRMData.append("chatName", pendingMessage.senderName);
-//   FRMData.append("isImage", pendingMessage.isImage);
-//   try {
-//     await fetch(`http://localhost:3000/notifications/create`, {
-//       method: "POST",
-//       headers: {
-//         Authorization: `Bearer ${Token}`,
-//       },
-//       body: FRMData,
-//     });
-
-//     return;
-//   } catch (error) {
-//     console.error("Error While sending Notifications:", error);
-//   }
-// };

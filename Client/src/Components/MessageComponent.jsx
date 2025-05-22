@@ -31,7 +31,7 @@ const MessageComponent = ({
           />
         ) : null}
 
-        {/* CLICKHANDLER HANDLES THE OPTION MESSAGE MENU */}
+        {/* CLICKHANDLER HANDLES THE OPTIONMESSAGE MENU */}
         <div
           onContextMenu={(e) =>
             clickHandler(e, msg.userSenderId, msg.id, msg.isImage, msg.Content)

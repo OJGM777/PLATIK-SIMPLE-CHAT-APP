@@ -70,7 +70,7 @@ export const chatAppSlice = createSlice({
      const existingIds = new Set(state.messages.map(msg => msg.id));
 
       const uniqueMessages = action.payload.messages.filter(
-        newMessage => !existingIds.has(newMessage.id) // HERE IS ANOTHER WAY TO ADD: const sortedMessages = messages.reverse();
+        newMessage => !existingIds.has(newMessage.id) 
       );
       
       return {
@@ -123,13 +123,13 @@ export const chatAppSlice = createSlice({
 
     setPendingMessagesFromBottomToZero: (state) => {
       state.pendingMessagesFromBottom = 0;
-    }, /// KEEP ADDING NUMBERS TO CHAT COMPONENTS
+    }, 
 
     setNotifications: (state, action) => {
       state.notifications.push(action.payload.notifications);
     },
 
-    /// THIS ONE INIATES WITH THE CHAT FETCHING (SETCHAT slice)
+    /// THIS ONE INIATES WITH THE CHAT FETCHING 
     setNumberOfNotificationsPerChat: (state, action) => {
       const notifications = action.payload.notifications;
       const notifMap = new Map();

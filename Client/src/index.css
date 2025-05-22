@@ -9,37 +9,18 @@
 }
 
 
-/* Personalización del scroll */
-/* Personalización del scroll */
 ::-webkit-scrollbar {
     width: 5px; 
-    height: 6px;/* Ancho del scrollbar */
+    height: 6px;
   }
   
-  /* Estilo para la manija del scrollbar */
   ::-webkit-scrollbar-thumb {
-    background-color: rgba(97, 97, 97, 0.164); /* Color de la manija del scrollbar */
+    background-color: rgba(97, 97, 97, 0.164); 
     border-radius: 10px;
     
   }
   
-  /* Estilo para la pista del scrollbar */
+
   ::-webkit-scrollbar-track {
-    background-color: transparent; /* Color de fondo de la pista del scrollbar */
+    background-color: transparent; 
   }
-
-  /* Cambiar el fondo del picker completo */
-.emoji-mart {
-  background-color: #561010 !important;
-}
-
-/* Cambiar el color del texto de la búsqueda */
-.emoji-mart-search input {
-  background-color: #333 !important;
-  color: white !important;
-}
-
-/* Cambiar la barra de categorías */
-.emoji-mart-category-bar {
-  background-color: #444 !important;
-}

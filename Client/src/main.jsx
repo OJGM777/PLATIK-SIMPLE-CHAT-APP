@@ -1,9 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import {persistStore} from "redux-persist"
-// import 'emoji-mart/css/emoji-mart.css'; CHANGE STYLES
-// import 'emoji-mart/css/'; 
+import {persistStore} from "redux-persist" 
 
 import "./index.css";
 import App from "./App.jsx";

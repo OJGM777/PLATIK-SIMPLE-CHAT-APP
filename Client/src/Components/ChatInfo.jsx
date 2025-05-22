@@ -257,7 +257,6 @@ const ChatInfo = ({ closeVar, image }) => {
                 </div>
               </div>
             )}
-            {/* SIGUE CON LA FUNCION DE AÑADIR MIEMBROS !!!!!!!!!!!!!!!! */}
             {activeTab === "tab2" && (
               <div>
                 <h3 className="text-xl font-bold mb-4 overflow-auto">

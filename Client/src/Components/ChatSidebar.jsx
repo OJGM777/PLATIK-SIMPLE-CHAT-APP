@@ -71,7 +71,6 @@ const ChatSidebar = ({ openFRM, openConfigs, openNotifications }) => {
           </h3>
         </div>
         <div className="relative">
-          {/* <h3 className="font-semibold text-gray-300 mb-2">Other Contacts</h3> */}
           {isLoading ? (
             <>
               <SkeletonLoader />
@@ -99,7 +98,6 @@ const ChatSidebar = ({ openFRM, openConfigs, openNotifications }) => {
           <button onClick={() => openNotifications(true)}  className={`cursor-pointer  ${fontSize} hover:bg-slate-200 dark:hover:bg-slate-600 rounded-full p-2`}>🔔</button>
           <button onClick={() => openConfigs(true)} className={`cursor-pointer  ${fontSize} hover:bg-slate-200 dark:hover:bg-slate-600 rounded-full p-2`}>⚙️</button>
         </div>
-        {/* MESSAGE MAIN PAGE*/}
         <div className=" max-lg:hidden text-center fixed top-[30%] left-[50%] w-[10%] text-gray-500">
           <img
             className="w-full"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { logInfo } from "../API/authCalls.js";
 import { SignUp } from "../API/authCalls.js";
 import { useDispatch } from "react-redux";
@@ -19,13 +19,12 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //IMPLEMENT ALERT
   const [message, setMessage] = useState({ display: false, msg: "", type: "" });
 
   const handleSubmit = async (e) => {
     {
       e.preventDefault();
-      setToWait(true); // Activa el estado antes de la operación
+      setToWait(true); 
       try {
         if (activeTab === "Sign In") {
           const resultData = await SignUp(name, email, password, about, pic);
@@ -53,8 +52,8 @@ const LoginPage = () => {
       } catch (error) {
         console.error("Error:", error);
       } finally {
-        setToWait(false); // Desactiva el estado al terminar
-      } // CREATE A SEPARATE FILE FOR LOADING SCREEN *******
+        setToWait(false); 
+      } 
     }
   };
 

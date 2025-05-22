@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { searchUser } from "../API/SearchCalls.js";
 import UserComponent from "./UserComponent.jsx";
 import SkeletonLoader from "../Skeletons/SkeletonLoader.jsx";
@@ -9,7 +8,7 @@ import ProfileInfo from "./ProfileInfo.jsx";
 
 const SearchWindow = ({ closeWindow }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [results, setResults] = useState(null); //
+  const [results, setResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [towait, setTowait] = useState(false);
   const [userIdToShowProfile, setUserIdToShowProfile] = useState(null);
@@ -20,7 +19,7 @@ const SearchWindow = ({ closeWindow }) => {
   const handleSearch = async () => {
     if (searchTerm.trim().length < 3) return;
 
-    setIsLoading(true); // Mostrar skeleton loader
+    setIsLoading(true); 
     try {
       const userResults = await searchUser(searchTerm, Token);
       setResults(userResults);
@@ -49,7 +48,6 @@ const SearchWindow = ({ closeWindow }) => {
           onClick={(e) => e.stopPropagation()}
           className="relative z-30 w-full overflow-y-hidden max-w-2xl mx-4 max-h-[80vh] md:max-h-[70vh] rounded-lg dark:bg-gray-900 bg-gray-50 text-white p-4 md:p-6"
         >
-          {/* Header */}
           <div className="mb-4">
             <h1 className="text-2xl md:text-3xl font-semibold text-purple-500">
               Search
@@ -59,7 +57,6 @@ const SearchWindow = ({ closeWindow }) => {
             </p>
           </div>
 
-          {/* Input de búsqueda */}
           <div className="flex flex-col md:flex-row gap-2 mb-4 md:mb-6">
             <input
               type="text"
@@ -72,11 +69,10 @@ const SearchWindow = ({ closeWindow }) => {
               className="px-4 py-2 md:py-3 bg-purple-500 rounded-md hover:bg-purple-600 transition text-sm font-semibold whitespace-nowrap"
               onClick={handleSearch}
             >
-              Buscar
+              Search
             </button>
           </div>
 
-          {/* Resultados */}
           <div className="dark:bg-gray-700 bg-gray-300 min-h-[200px] max-h-[50vh] md:max-h-[55vh] overflow-auto rounded-md p-3 md:p-4">
             <h2 className="text-base md:text-lg font-medium mb-2 text-black dark:text-gray-300">
               Results

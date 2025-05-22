@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { searchUser } from "../API/SearchCalls.js";
 import UserComponent from "../Components/UserComponent.jsx";
 import SkeletonLoader from "../Skeletons/SkeletonLoader.jsx";

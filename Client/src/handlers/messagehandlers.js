@@ -33,7 +33,6 @@ export const handleUpdate = async (
   token
 ) => {
   try {
-    // console.log({messageId, chatId, messageContent, token })
     const result = await updateMessageById(messageId, messageContent, token);
     if (result.error) return;
 
@@ -80,7 +79,7 @@ export const handleMessageReceived = (
   dispatch(setNewMessage({ newMessage: newMessageReceived }));
 };
 
-//// SIGUE MAÑANA, SEPARANDO CUANDO CAE UN MENSAJE EN EL CHAT Y CUANDO ESTAS AFUERA.
+
 
 export const handledNotificationModals = (
   newMessageReceived,

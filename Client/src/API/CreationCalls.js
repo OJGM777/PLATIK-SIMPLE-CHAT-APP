@@ -1,5 +1,3 @@
-
-
 export const createGroupChat = async (
   groupName,
   users,

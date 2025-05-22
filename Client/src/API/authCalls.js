@@ -19,7 +19,6 @@ export const logInfo = async (email, password, dispatch, navigate, ) => {
     if (!result.ok) {
       dispatch(setLogOut());
       return result.json();
-      throw new Error("Failed to authenticate user");
     }
 
     const authorizatedUser = await result.json();

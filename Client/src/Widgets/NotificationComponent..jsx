@@ -28,7 +28,7 @@ const NotificationComponent = ({ userId, token }) => {
           );
         }, 50);
 
-        // Configura el desmontaje después de un tiempo
+        
         setTimeout(() => {
           handleDismiss(newNotification.id);
           dispatch(removeNotifications());
@@ -62,7 +62,7 @@ const NotificationComponent = ({ userId, token }) => {
     handleDismiss(nId);
     dispatch(setToUpdater());
 
-    handleDeleteNotificationsFromChat(userId, chatId, token); //// ADD NUMBERS TO CHAT COMPONENT
+    handleDeleteNotificationsFromChat(userId, chatId, token);
   };
 
   return (
@@ -70,7 +70,6 @@ const NotificationComponent = ({ userId, token }) => {
       key={"NOSE"}
       className="flex flex-col w-[25%] gap-2 z-50 right-2 fixed "
     >
-      {/* Renderiza las notificaciones */}
       {modalNotifications.map((notification) => (
         <div
           key={notification.id}

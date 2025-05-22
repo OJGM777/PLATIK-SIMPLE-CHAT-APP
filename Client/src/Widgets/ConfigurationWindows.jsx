@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fontSizeChange,
@@ -9,8 +9,6 @@ import UserInfoUpdate from "./UserInfoUpdate";
 import { handleUnMuteChat } from "../handlers/chatHandlers";
 
 const ConfigurationWindows = ({ WindowVar }) => {
-  // const [notificationsEnabled, setNotificationsEnabled] = useState(true);
-  const [chatSoundEnabled, setChatSoundEnabled] = useState(true);
   const [activeTab, setActiveTab] = useState("tab1");
 
   const dispatch = useDispatch();
@@ -68,11 +66,8 @@ const ConfigurationWindows = ({ WindowVar }) => {
               User
             </button>
           </div>
-
-          {/* Contenido Dinámico */}
           {activeTab === "tab1" && (
             <>
-              {/* Opción de Modo Oscuro */}
               <br />
               <br />
               <br />
@@ -94,7 +89,6 @@ const ConfigurationWindows = ({ WindowVar }) => {
                 </label>
               </div>
               <br />
-              {/* Opción de Notificaciones */}
               <div className="mb-4">
                 <label className="flex items-center justify-between cursor-pointer">
                   <span className={fontSize}>Notifications</span>
@@ -113,7 +107,6 @@ const ConfigurationWindows = ({ WindowVar }) => {
                 </label>
               </div>
               <br />
-              {/* Configuración de Tamaño de Fuente */}
               <div className="mb-4">
                 <label className={`block ${fontSize} mb-2`}>
                   Font Size

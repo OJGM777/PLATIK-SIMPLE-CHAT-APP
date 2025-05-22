@@ -85,12 +85,8 @@ const UserInfoUpdate = () => {
     <>
       {toWait && <LoadScreen />}
       <div>
-        {/* <h1 className="text-2xl mt-[5vh]">Information</h1>
-      <p>Update your information here</p>
-      <hr /> */}
         <br />
         <form className="gap-1 flex flex-col">
-          {/* profile picture stuff */}
 
           <div className="flex items-center gap-3 w-[120px] m-auto cursor-pointer justify-center mb-4 relative group">
             <div className="relative w-28 h-28">

@@ -1,5 +1,5 @@
 // Import React and necessary hooks
-import React, { useEffect, useState, useRef } from "react";
+import  { useEffect, useState, useRef } from "react";
 
 // Import components and utilities
 import MessageComponent from "./MessageComponent.jsx";
@@ -258,8 +258,8 @@ const ChatWindow = () => {
 
   const [position, setPosition] = useState({ x: 0, y: 0 }); /// THIS VAR WILL SET THE MENU IN THE EXACT PLACE WHERE YOU CLICKED THE MOUSE
   const [openMenu, setOpenMenu] = useState(false);
-  const [selectedId, setSelectedId] = useState(null); // also used to update and delete
-  const [selectedMessageContent, setSelectedMessageContent] = useState(null); // both
+  const [selectedId, setSelectedId] = useState(null); 
+  const [selectedMessageContent, setSelectedMessageContent] = useState(null); 
   const [isImage, setIsImage] = useState(false);
 
   const handleLeftClick = (e, senderId, messageId, isImage, messageContent) => {
@@ -282,7 +282,7 @@ const ChatWindow = () => {
 
   //////////////////
 
-  /// HERE IS THE PART WHERE THE USER UPDATE THE MESSAGE
+ 
   const [inputToUpdate, setInputToUpdate] = useState(false);
   const [oldMessageToShow, setOldMessageToShow] = useState(null);
 
