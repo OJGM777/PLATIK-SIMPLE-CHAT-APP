@@ -30,7 +30,7 @@ export const register = async (req, res) => {
     /////////
 
 
-    // CHECK IF THE EMAIL ALREADY EXISTS
+    // CHECKS IF THE EMAIL ALREADY EXISTS
     const emailAlreadyExists = await getUser({email: email});
 
     if(emailAlreadyExists || emailAlreadyExists?.length > 1){

@@ -1,6 +1,6 @@
 import { deleteImageFromImageHost, uploadImage } from "../Middleware/CloudinaryIMGuploader.js";
 import { createMessage, deleteMessageById, getMessageById, getMessagesFromChatId, updateMessageById } from "../Model/messages.js";
-import { sendNotifications } from "./notificationsController.js";
+
 
 export const createAndSendMessages = async (req, res) => {
   try {

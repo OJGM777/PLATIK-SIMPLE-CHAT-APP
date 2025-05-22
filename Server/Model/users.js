@@ -1,4 +1,3 @@
-import { getChat } from "./chats.js";
 import { pool } from "./index.js";
 
 export const registerUser = async (

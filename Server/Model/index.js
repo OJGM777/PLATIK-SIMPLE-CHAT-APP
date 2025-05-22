@@ -25,7 +25,7 @@ export const testTable = async () => {
   }
 };
 
-// Verifica el estado del pool cada 2 segundos
+// 
 // setInterval(() => {
 //   console.log(`📊 Pool Status:
 //   Free: ${pool.pool._freeConnections.length}
@@ -33,11 +33,11 @@ export const testTable = async () => {
 //   Queue: ${pool.pool._connectionQueue.length}`);
 // }, 2000);
 
-// Hooks de eventos del pool
-pool.on('acquire', (connection) => {
-  console.log(`🔒 Conexión ${connection.threadId} adquirida`);
-});
 
-pool.on('enqueue', () => {
-  console.log(`⌛ Request en cola (Total: ${pool.pool._connectionQueue.length})`);
-});
+// pool.on('acquire', (connection) => {
+//   console.log(`🔒 Conexión ${connection.threadId} adquirida`);
+// });
+
+// pool.on('enqueue', () => {
+//   console.log(`⌛ Request en cola (Total: ${pool.pool._connectionQueue.length})`);
+// });

@@ -60,12 +60,11 @@ export const updateImage = async (file, IMGurl) => {
 const getPublicIdFromIMGURL = (url) => {
   const parts = url.split("/upload/");
   if (parts.length < 2) return parts;
-  const pathWithVersion = parts[1].split(".")[0]; // sin extensión
+  const pathWithVersion = parts[1].split(".")[0]; 
   const pathSegments = pathWithVersion.split("/");
 
-  // Si hay versión, el public_id empieza después
   if (pathSegments[0].startsWith("v") && !isNaN(pathSegments[0].slice(1))) {
-    pathSegments.shift(); // quitamos la versión
+    pathSegments.shift(); 
   }
 
   return pathSegments.join("/");

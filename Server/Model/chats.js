@@ -105,7 +105,7 @@ export const getChat = async (obj) => {
 
 
 
-export const getUsersFromChat = async (chatId) => { //Used Only on chat (maybe implement later on client)
+export const getUsersFromChat = async (chatId) => { 
   const connection = await pool.getConnection();
   try {
     const getQuery = `SELECT UserId AS id FROM Users_Chats WHERE ChatId = ?`;

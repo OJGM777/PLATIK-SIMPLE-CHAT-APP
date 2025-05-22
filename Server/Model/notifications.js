@@ -85,4 +85,4 @@ export const deleteAllTheRelatedNotificationsFromDB = async (
   }
 };
 
-// \n
+
