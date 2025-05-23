@@ -121,6 +121,9 @@ You can search any user that is registered on the web just by typing its email.
 </ul>
 
 
+<p>If you find any bugs or issues with the page, or if you have suggestions for better ways to handle certain actions, feel free to let me know — I’ll do my best to improve it! ;) </p>
+
+
 
 
 
