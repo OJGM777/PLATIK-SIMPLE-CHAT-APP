@@ -60,7 +60,7 @@ Along with that i added: P-QUERY which is a library that control queues and avoi
 <b>FEATURES</b>
 <ul>
   <li>[as an Admin]: You can Add more users to the chat (if is a group chat)</li>
-  <li>[as an Admin]: You can kick an user out from the chat</li>
+  <li>[as an Admin]: You can kick a user out from the chat</li>
   <li>[as an Admin]: displays a new tab called "Management" where the admin can delete all the messages or delete the entire group chat. </li>
 </ul>
 
